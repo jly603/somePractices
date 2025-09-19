@@ -66,7 +66,78 @@
 
 ![img_01](https://github.com/jly603/somePractices/blob/master/2025/09/19/20250919_01.png)
 
-test 看不到就寄
+题目讲的大概就是这样子。
+
+输入样式大概就是这样（这是有必要的，不然看不懂）：
+
+![img_02](https://github.com/jly603/somePractices/blob/master/2025/09/19/20250919_02.png)
+
+好了，模拟一下就大概知道怎么做了。
+
+```c++
+atRoom = entry;
+int times;
+while(floor < N) {
+    times = tower[floor][atRoom].times;
+	while (times){
+        if(atRoom == M) atRoom = 0;
+        if(tower[floor][atRoom].isStair) times--;
+		room++;
+	}
+    atRoom -= 1;
+    floor++;
+}
+```
+
+可以开始写了。
+
+<hr>
+
+```C++
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+ll sum = 0, entry;
+struct room {
+	bool isStair;
+	int times;
+}tower[10001][101];
+int main() {
+	int N, M, floor = 1;
+	cin >> N >> M;
+	for (int i = 1; i <= N; i++)
+		for (int j = 0; j < M; j++) {
+			cin >> tower[i][j].isStair >> tower[i][j].times;
+		}
+	cin >> entry;
+	int atRoom = entry;
+	int times;
+	while (floor <= N) {
+		times = tower[floor][atRoom].times;
+		sum += times;
+		while (times) {
+			if (atRoom == M)
+				atRoom = 0;
+			if (tower[floor][atRoom].isStair) times--;
+			atRoom++;
+		}
+		atRoom -= 1;
+		floor++;
+	}
+	cout << sum % 20123;
+	return 0;
+}
+```
+
+但感觉会超时。如果要满分可能要高精加。
+
+不出所料地超时了。只有50分。想想怎么改进。
+
+
+
+
+
+
 
 
 
