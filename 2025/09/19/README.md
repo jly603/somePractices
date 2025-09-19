@@ -129,6 +129,56 @@ int main() {
 }
 ```
 
+<<<<<<< HEAD
+但感觉会超时。
+
+不出所料地超时了。只有50分。想想怎么改进。
+
+在每层的房间中模拟循环了太多遍。可以把每一层有楼梯的房间的数量算出来，然后用`模`简化指示牌的数字。
+
+调了亿会，过了过了 X-P
+
+```C++
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+ll sum = 0, entry;
+struct room {
+	bool isStair;
+	int times;
+}tower[10001][101];
+int main() {
+	int N, M, floor = 1;
+	cin >> N >> M;
+	for (int i = 1; i <= N; i++)
+		for (int j = 0; j < M; j++) {
+			cin >> tower[i][j].isStair >> tower[i][j].times;
+			if (tower[i][j].isStair) tower[i][M].times++; //第M行存房间数
+		}
+	cin >> entry;
+	int atRoom = entry;
+	int times;
+	while (floor <= N) {
+		times = tower[floor][atRoom].times;
+		sum += times;
+		if (times % tower[floor][M].times)  //取模
+			times %= tower[floor][M].times;
+		else
+			times = tower[floor][M].times;
+		while (times) {
+			if (atRoom == M)
+				atRoom = 0;
+			if (tower[floor][atRoom].isStair) times--;
+			atRoom++;
+		}
+		atRoom -= 1;
+		floor++;
+	}
+	cout << sum % 20123;
+	return 0;
+}
+```
+=======
 但感觉会超时。如果要满分可能要高精加。
 
 不出所料地超时了。只有50分。想想怎么改进。
@@ -136,6 +186,7 @@ int main() {
 
 
 
+>>>>>>> ff8f549f06bbb3b1150ed81aa557c8dc17d41d5f
 
 
 
