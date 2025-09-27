@@ -22,7 +22,7 @@ int main() {
 	//打表(step)
 	for (int i = 1; i <= 30; i++) {
 		for (int j = 1; j <= 30; j++) {
-			sheet[i][j].step = i + j - 1;
+			sheet[i][j].step = i + j - 2;
 		}
 	}
 	//打表(path)
@@ -38,7 +38,7 @@ int main() {
 	for (int i = 1; i <= 30; i++) {
 		for (int j = 1; j <= 30; j++) {
 			if (sheet[i][j].num == 1 && sheet[i][j].step == m)
-			sum += sheet[i][j].path;
+				sum += sheet[i][j].path;
 		}
 	}
 	cout << sum;
