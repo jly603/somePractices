@@ -55,7 +55,7 @@
 
 所以。。。试着做了以下简化（我也不知道我是怎么想象出来的）：
 
-![https://github.com/jly603/somePractices/blob/master/2025/09/27/20250927_01.png]()
+![https://github.com/jly603/somePractices/tree/master/2025/09/27/20250927_01.png]()
 
 
 
