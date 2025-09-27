@@ -4,8 +4,8 @@ using namespace std;
 int m, n;
 ll sum = 0;
 struct node {
-	int num;
-	int step;
+	ll num;
+	ll step;
 	ll path;
 }sheet[31][31];
 int main() {
@@ -22,7 +22,7 @@ int main() {
 	//打表(step)
 	for (int i = 1; i <= 30; i++) {
 		for (int j = 1; j <= 30; j++) {
-			sheet[i][j].step = i + j - 2;
+			else sheet[i][j].step = i + j - 2;
 		}
 	}
 	//打表(path)
